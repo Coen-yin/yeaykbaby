@@ -328,7 +328,7 @@ async function seedDb() {
     await pool.query("INSERT INTO vote_sites (name, url, description) VALUES ($1,$2,$3),($4,$5,$6)", ['Minecraft Server List', 'https://minecraftservers.org', 'Vote daily to support the server.', 'TopG', 'https://topg.org', 'Earn rewards after voting.']);
   }
   if (counts[7].rows[0].count === 0) {
-    await pool.query("INSERT INTO leaderboard (username, rank, kills, deaths, votes, money, playtime) VALUES ($1,$2,$3,$4,$5,$6,$7),($8,$9,$10,$11,$12,$13,$14),($15,$16,$17,$18,$19,$20,$21)", ['TechyOwner', 'owner', 420, 22, 91, 250000, 980, 'VortexMVP', 'mvp', 190, 44, 58, 48000, 510, 'RedstonePro', 'elite', 120, 39, 33, 32000, 360]);
+    await pool.query("INSERT INTO leaderboard (username, rank, kills, deaths, votes, money, playtime) VALUES ($1,$2,$3,$4,$5,$6,$7),($8,$9,$10,$11,$12,$13,$14),($15,$16,$17,$18,$19,$20,$21)", ['VortexOwner', 'owner', 420, 22, 91, 250000, 980, 'VortexMVP', 'mvp', 190, 44, 58, 48000, 510, 'RedstonePro', 'elite', 120, 39, 33, 32000, 360]);
   }
 }
 
