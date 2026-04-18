@@ -1,0 +1,125 @@
+Time
+Status
+Host
+Request
+Messages
+Apr 18 11:48:48.70
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:44.16
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/bans
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:43.59
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:41.43
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/rules
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:40.87
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:38.07
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/forums/stats
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:38.07
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/forums/categories
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:37.51
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:36.74
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/stats
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:36.74
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/announcements
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:36.74
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/status
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:35.79
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:28.26
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/status
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:28.26
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/stats
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue. Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:28.26
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/announcements
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:27.59
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/announcements
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue. Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:27.59
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/stats
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:27.59
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/server/status
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue. Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:27.25
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue. Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Apr 18 11:48:26.89
+GET
+500
+yeaykbaby-kqxdkhvh8-coen-yins-projects.vercel.app
+/api/config
+Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/jose/dist/webapi/index.js from /var/task/server.js not supported. Instead change the require of index.js in /var/task/server.js to a dynamic import() which is available in all CommonJS modules. at /opt/rust/nodejs.js:2:13531 at Module.hn (/opt/rust/nodejs.js:2:13909) at Xe.e.<computed>.Ye._load (/opt/rust/nodejs.js:2:13501) at TracingChannel.traceSync (node:diagnostics_channel:328:14) { code: 'ERR_REQUIRE_ESM' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
