@@ -296,20 +296,33 @@ async function initDb() {
     `);
     await pool.query(`
       DO $$ BEGIN
+        -- Fix legacy clerk_user_id NOT NULL
         IF EXISTS (
           SELECT 1 FROM information_schema.columns
           WHERE table_name='users' AND column_name='clerk_user_id'
         ) THEN
-          BEGIN
-            ALTER TABLE users ALTER COLUMN clerk_user_id DROP NOT NULL;
-          EXCEPTION WHEN OTHERS THEN NULL;
-          END;
+          BEGIN ALTER TABLE users ALTER COLUMN clerk_user_id DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
           UPDATE users SET clerk_id = clerk_user_id WHERE clerk_id IS NULL AND clerk_user_id IS NOT NULL;
         END IF;
-        IF NOT EXISTS (
-          SELECT 1 FROM information_schema.columns
-          WHERE table_name='forum_threads' AND column_name='post_count'
-        ) THEN
+        -- Fix legacy users.username NOT NULL (migrate later-added clerk accounts safely)
+        BEGIN ALTER TABLE users ALTER COLUMN username DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        -- Fix legacy forum_threads columns
+        BEGIN ALTER TABLE forum_threads ALTER COLUMN author_id DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_threads ALTER COLUMN author_name DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_threads ALTER COLUMN author_name SET DEFAULT ''; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_threads ALTER COLUMN author_rank DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_threads ALTER COLUMN author_rank SET DEFAULT 'player'; EXCEPTION WHEN OTHERS THEN NULL; END;
+        -- Fix legacy forum_posts columns
+        BEGIN ALTER TABLE forum_posts ALTER COLUMN author_id DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_posts ALTER COLUMN author_name DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_posts ALTER COLUMN author_name SET DEFAULT ''; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_posts ALTER COLUMN author_rank DROP NOT NULL; EXCEPTION WHEN OTHERS THEN NULL; END;
+        BEGIN ALTER TABLE forum_posts ALTER COLUMN author_rank SET DEFAULT 'player'; EXCEPTION WHEN OTHERS THEN NULL; END;
+        -- Ensure forum_threads has content and post_count
+        IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='forum_threads' AND column_name='content') THEN
+          ALTER TABLE forum_threads ADD COLUMN content TEXT NOT NULL DEFAULT '';
+        END IF;
+        IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='forum_threads' AND column_name='post_count') THEN
           ALTER TABLE forum_threads ADD COLUMN post_count INTEGER NOT NULL DEFAULT 0;
         END IF;
       END $$;
@@ -774,7 +787,10 @@ const tableConfig = {
 
 function bodyToColumnValue(type, column, body) {
   const key = column.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
-  if (column === 'features') return JSON.stringify(parseFeatures(body.features));
+  if (column === 'features') {
+    if (body.features === undefined && body[key] === undefined) return undefined;
+    return JSON.stringify(parseFeatures(body.features ?? body[key]));
+  }
   return body[key] ?? body[column];
 }
 
