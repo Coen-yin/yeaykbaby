@@ -799,9 +799,13 @@ initDb().catch(error => {
   console.error('Database setup failed:', error.message);
 });
 
-app.listen(port, '0.0.0.0', () => {
-  const missing = requiredSetup();
-  console.log(`Website running on port ${port}`);
-  if (missing.length) console.log(`Missing secure settings: ${missing.join(', ')}`);
-  if (dbError) console.log(`Database error: ${dbError.message}`);
-});
+if (require.main === module) {
+  app.listen(port, '0.0.0.0', () => {
+    const missing = requiredSetup();
+    console.log(`Website running on port ${port}`);
+    if (missing.length) console.log(`Missing secure settings: ${missing.join(', ')}`);
+    if (dbError) console.log(`Database error: ${dbError.message}`);
+  });
+}
+
+module.exports = app;
