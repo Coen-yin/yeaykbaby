@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const crypto = require('crypto');
-const { Pool } = require('pg');
+const { Pool } = require('@neondatabase/serverless');
 const { jwtVerify, createRemoteJWKSet } = require('jose');
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.static(__dirname));
 
 if (databaseUrl) {
-  pool = new Pool({ connectionString: databaseUrl, ssl: databaseUrl.includes('sslmode=') ? undefined : { rejectUnauthorized: false } });
+  pool = new Pool({ connectionString: databaseUrl });
 }
 
 function issuerFromPublishableKey() {
