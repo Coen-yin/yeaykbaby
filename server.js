@@ -294,6 +294,26 @@ async function initDb() {
       ALTER TABLE IF EXISTS leaderboard ADD COLUMN IF NOT EXISTS playtime INTEGER NOT NULL DEFAULT 0;
       ALTER TABLE IF EXISTS leaderboard ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
     `);
+    await pool.query(`
+      DO $$ BEGIN
+        IF EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name='users' AND column_name='clerk_user_id'
+        ) THEN
+          BEGIN
+            ALTER TABLE users ALTER COLUMN clerk_user_id DROP NOT NULL;
+          EXCEPTION WHEN OTHERS THEN NULL;
+          END;
+          UPDATE users SET clerk_id = clerk_user_id WHERE clerk_id IS NULL AND clerk_user_id IS NOT NULL;
+        END IF;
+        IF NOT EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name='forum_threads' AND column_name='post_count'
+        ) THEN
+          ALTER TABLE forum_threads ADD COLUMN post_count INTEGER NOT NULL DEFAULT 0;
+        END IF;
+      END $$;
+    `);
     await seedDb();
     dbReady = true;
     dbError = null;
@@ -383,7 +403,7 @@ async function clerkUserFromRequest(req) {
   const primaryEmailId = profile?.primary_email_address_id;
   const primaryEmail = profile?.email_addresses?.find(e => e.id === primaryEmailId) || profile?.email_addresses?.[0] || null;
   const email = primaryEmail?.email_address || verified.payload.email || '';
-  const emailVerified = primaryEmail?.verification?.status === 'verified' || verified.payload.email_verified === true;
+  const emailVerified = primaryEmail?.verification?.status === 'verified' || verified.payload.email_verified !== false;
   const username = profile?.username || email.split('@')[0] || `player_${String(clerkId).slice(-6)}`;
   const displayName = [profile?.first_name, profile?.last_name].filter(Boolean).join(' ') || username;
   const avatarUrl = profile?.image_url || '';
@@ -584,7 +604,7 @@ app.get('/api/appeals', asyncRoute(async (req, res) => {
 app.post('/api/appeals', asyncRoute(async (req, res) => {
   const user = await requireUser(req, res);
   if (!user) return;
-  const rows = await q('INSERT INTO appeals (user_id, player_name, reason, explanation) VALUES ($1,$2,$3,$4) RETURNING *', [user.id, req.body.playerName, req.body.reason, req.body.explanation]);
+  const rows = await q('INSERT INTO appeals (user_id, player_name, reason, explanation) VALUES ($1,$2,$3,$4) RETURNING *', [user.id > 0 ? user.id : null, req.body.playerName, req.body.reason, req.body.explanation]);
   res.json(mapRows(rows.rows, 'appeals')[0]);
 }));
 
@@ -604,7 +624,7 @@ app.get('/api/applications', asyncRoute(async (req, res) => {
 app.post('/api/applications', asyncRoute(async (req, res) => {
   const user = await requireUser(req, res);
   if (!user) return;
-  const rows = await q('INSERT INTO applications (user_id, applicant_name, position, age, availability, experience, why_join) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *', [user.id, req.body.applicantName, req.body.position, req.body.age, req.body.availability, req.body.experience || '', req.body.whyJoin || '']);
+  const rows = await q('INSERT INTO applications (user_id, applicant_name, position, age, availability, experience, why_join) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *', [user.id > 0 ? user.id : null, req.body.applicantName, req.body.position, req.body.age, req.body.availability, req.body.experience || '', req.body.whyJoin || '']);
   res.json(mapRows(rows.rows, 'applications')[0]);
 }));
 
@@ -624,7 +644,7 @@ app.get('/api/tickets', asyncRoute(async (req, res) => {
 app.post('/api/tickets', asyncRoute(async (req, res) => {
   const user = await requireUser(req, res);
   if (!user) return;
-  const rows = await q('INSERT INTO tickets (user_id, submitter_name, subject, category, message) VALUES ($1,$2,$3,$4,$5) RETURNING *', [user.id, req.body.submitterName || user.displayName, req.body.subject, req.body.category, req.body.message]);
+  const rows = await q('INSERT INTO tickets (user_id, submitter_name, subject, category, message) VALUES ($1,$2,$3,$4,$5) RETURNING *', [user.id > 0 ? user.id : null, req.body.submitterName || user.displayName, req.body.subject, req.body.category, req.body.message]);
   res.json(mapRows(rows.rows, 'tickets')[0]);
 }));
 
@@ -660,8 +680,9 @@ app.get('/api/forums/categories/:id/threads', asyncRoute(async (req, res) => {
 app.post('/api/forums/threads', asyncRoute(async (req, res) => {
   const user = await requireUser(req, res);
   if (!user) return;
-  const rows = await q('INSERT INTO forum_threads (category_id,user_id,title,content) VALUES ($1,$2,$3,$4) RETURNING *', [req.body.categoryId, user.id, req.body.title, req.body.content]);
-  await q('UPDATE users SET post_count=post_count+1 WHERE id=$1', [user.id]);
+  const uid = user.id > 0 ? user.id : null;
+  const rows = await q('INSERT INTO forum_threads (category_id,user_id,title,content) VALUES ($1,$2,$3,$4) RETURNING *', [req.body.categoryId, uid, req.body.title, req.body.content]);
+  if (uid) await q('UPDATE users SET post_count=post_count+1 WHERE id=$1', [uid]);
   res.json({ id: rows.rows[0].id });
 }));
 
@@ -675,8 +696,9 @@ app.get('/api/forums/threads/:id', asyncRoute(async (req, res) => {
 app.post('/api/forums/threads/:id/posts', asyncRoute(async (req, res) => {
   const user = await requireUser(req, res);
   if (!user) return;
-  const rows = await q('INSERT INTO forum_posts (thread_id,user_id,content) VALUES ($1,$2,$3) RETURNING *', [req.params.id, user.id, req.body.content]);
-  await q('UPDATE users SET post_count=post_count+1 WHERE id=$1', [user.id]);
+  const uid = user.id > 0 ? user.id : null;
+  const rows = await q('INSERT INTO forum_posts (thread_id,user_id,content) VALUES ($1,$2,$3) RETURNING *', [req.params.id, uid, req.body.content]);
+  if (uid) await q('UPDATE users SET post_count=post_count+1 WHERE id=$1', [uid]);
   res.json(mapRows(rows.rows, 'posts')[0]);
 }));
 
